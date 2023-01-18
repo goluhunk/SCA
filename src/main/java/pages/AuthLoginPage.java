@@ -1,8 +1,13 @@
 package pages;
 
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.WebDriver;
+
+import driver.Browser;
 
 public class AuthLoginPage extends BasePage {
+
+	WebDriver driver=Browser.getDriver();
 	String redirect_url          =    "http://qa.tax.service.gov.uk/single-customer-account/your-details";
 	String redirectionURL_XP     =    "//input[@id='redirectionUrl']";
 	String credentialStrength_XP =    "//select[@id='credentialStrength']";
@@ -13,7 +18,6 @@ public class AuthLoginPage extends BasePage {
 	//Action
 	
 	public void Login() {
-		driver=new ChromeDriver();
 		driver.get(login_url);
 		findElementByXPath(redirectionURL_XP).sendKeys(redirect_url);;
 		findElementByXPath(credentialStrength_XP).sendKeys("strong");;
